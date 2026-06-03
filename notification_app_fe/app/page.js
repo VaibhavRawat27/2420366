@@ -196,8 +196,8 @@ export default function AllNotifications() {
               >
                 <MenuItem value={5}>5 per page</MenuItem>
                 <MenuItem value={10}>10 per page</MenuItem>
-                <MenuItem value={20}>20 per page</MenuItem>
-                <MenuItem value={50}>50 per page</MenuItem>
+
+
               </Select>
             </FormControl>
           </Grid>

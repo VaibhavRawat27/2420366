@@ -58,3 +58,66 @@ Error: Database connection failed!
 [2026-06-03T09:55:22.342Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 95ms
 [2026-06-03T09:59:24.024Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 338ms
 [2026-06-03T10:00:34.906Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 127ms
+[2026-06-03T10:16:02.367Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 432ms
+[2026-06-03T10:16:10.677Z] [INFO] [notification-backend]: GET /api/notifications?page=2&limit=10 - Status: 200 - 151ms
+[2026-06-03T10:16:13.159Z] [ERROR] [notification-backend]: Failed to fetch notifications: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+Stack Trace:
+Error: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+    at fetchExternalNotifications (file:///E:/2420366/notification_app_be/server.js:90:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///E:/2420366/notification_app_be/server.js:134:18
+[2026-06-03T10:16:13.174Z] [ERROR] [notification-backend]: GET /api/notifications?page=1&limit=50 - Status: 500 - 81ms
+[2026-06-03T10:17:00.852Z] [ERROR] [notification-backend]: Failed to fetch notifications: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+Stack Trace:
+Error: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+    at fetchExternalNotifications (file:///E:/2420366/notification_app_be/server.js:90:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///E:/2420366/notification_app_be/server.js:134:18
+[2026-06-03T10:17:00.856Z] [ERROR] [notification-backend]: GET /api/notifications?page=1&limit=20 - Status: 500 - 150ms
+[2026-06-03T10:17:03.271Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 120ms
+[2026-06-03T10:17:04.560Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=5 - Status: 200 - 77ms
+[2026-06-03T10:17:05.637Z] [ERROR] [notification-backend]: Failed to fetch notifications: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+Stack Trace:
+Error: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+    at fetchExternalNotifications (file:///E:/2420366/notification_app_be/server.js:90:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///E:/2420366/notification_app_be/server.js:134:18
+[2026-06-03T10:17:05.640Z] [ERROR] [notification-backend]: GET /api/notifications?page=1&limit=20 - Status: 500 - 75ms
+[2026-06-03T10:17:22.544Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 166ms
+[2026-06-03T10:17:25.365Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=5 - Status: 200 - 73ms
+[2026-06-03T10:17:28.506Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 100ms
+[2026-06-03T10:17:39.282Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 126ms
+[2026-06-03T10:17:59.726Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10 - Status: 200 - 1892ms
+[2026-06-03T10:17:59.757Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10&readIds=0a6c71ae-1992-43f4-9199-1fc8a9587df9%2C3e70bad9-d41c-45ae-b844-f17b4cfe3de4%2C9ca89730-47a1-42b8-99e9-8a31bfb908fb%2Cefd20d89-7340-4818-8f67-655c94aade35%2C823b2c80-acf0-448d-b3e4-b8aa292dbbb0%2C8f304611-0182-4c01-8b68-805b01e59010%2Ce4cb6b5c-453b-4b33-bc19-afab07cbb7a4%2Cd0edec32-5876-4f9b-8eac-5b687493355e%2C577d1b0e-1f7a-43ca-a287-08aa093da237%2C98db53df-838f-4c59-a33a-af0fe8a268bf%2C8ba9a0eb-9ce6-4b0f-9fee-5ce5eb10d674%2Cf2723422-434c-4c68-91b7-938c24d29709%2C04f9b786-be99-4910-97a3-6e491cbbfb54%2Cde2e08b9-502d-493c-b238-b74f82ef3a9c%2C285ede7e-2265-4a78-9a4f-4ceac19a79dc%2Cc3827eee-3f93-481d-8233-1a2eba7b148e%2Cc7af9868-7750-4422-94e8-0edc0a677b96%2Cc12d8fb1-1b8e-431a-b81a-1584433c12da%2C8dcfc42f-abfe-40f7-9341-4f4d973aae1c%2C0b1023f0-cba2-4553-9bef-16dbd2d38e16%2C0081f691-755a-4bcc-a17f-0ea974fcb27e%2C5b0c857b-0798-4a91-8934-06b65fbfe3be%2C24adf502-0bfc-4f2d-8bd1-6793ec57f917 - Status: 200 - 1896ms
+[2026-06-03T10:18:01.587Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10 - Status: 304 - 1858ms
+[2026-06-03T10:18:03.538Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=30&readIds=0a6c71ae-1992-43f4-9199-1fc8a9587df9%2C3e70bad9-d41c-45ae-b844-f17b4cfe3de4%2C9ca89730-47a1-42b8-99e9-8a31bfb908fb%2Cefd20d89-7340-4818-8f67-655c94aade35%2C823b2c80-acf0-448d-b3e4-b8aa292dbbb0%2C8f304611-0182-4c01-8b68-805b01e59010%2Ce4cb6b5c-453b-4b33-bc19-afab07cbb7a4%2Cd0edec32-5876-4f9b-8eac-5b687493355e%2C577d1b0e-1f7a-43ca-a287-08aa093da237%2C98db53df-838f-4c59-a33a-af0fe8a268bf%2C8ba9a0eb-9ce6-4b0f-9fee-5ce5eb10d674%2Cf2723422-434c-4c68-91b7-938c24d29709%2C04f9b786-be99-4910-97a3-6e491cbbfb54%2Cde2e08b9-502d-493c-b238-b74f82ef3a9c%2C285ede7e-2265-4a78-9a4f-4ceac19a79dc%2Cc3827eee-3f93-481d-8233-1a2eba7b148e%2Cc7af9868-7750-4422-94e8-0edc0a677b96%2Cc12d8fb1-1b8e-431a-b81a-1584433c12da%2C8dcfc42f-abfe-40f7-9341-4f4d973aae1c%2C0b1023f0-cba2-4553-9bef-16dbd2d38e16%2C0081f691-755a-4bcc-a17f-0ea974fcb27e%2C5b0c857b-0798-4a91-8934-06b65fbfe3be%2C24adf502-0bfc-4f2d-8bd1-6793ec57f917 - Status: 200 - 1799ms
+[2026-06-03T10:18:06.321Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 89ms
+[2026-06-03T10:18:06.413Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 89ms
+[2026-06-03T10:18:34.205Z] [ERROR] [notification-backend]: Failed to fetch notifications: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+Stack Trace:
+Error: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+    at fetchExternalNotifications (file:///E:/2420366/notification_app_be/server.js:90:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///E:/2420366/notification_app_be/server.js:134:18
+[2026-06-03T10:18:34.216Z] [ERROR] [notification-backend]: GET /api/notifications?page=1&limit=20 - Status: 500 - 109ms
+[2026-06-03T10:18:36.093Z] [ERROR] [notification-backend]: Failed to fetch notifications: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+Stack Trace:
+Error: External API returned status 400: {"errors":[{"limit":"can be at most 10"}]}
+    at fetchExternalNotifications (file:///E:/2420366/notification_app_be/server.js:90:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///E:/2420366/notification_app_be/server.js:134:18
+[2026-06-03T10:18:36.096Z] [ERROR] [notification-backend]: GET /api/notifications?page=1&limit=25 - Status: 500 - 55ms
+[2026-06-03T10:19:43.192Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 133ms
+[2026-06-03T10:19:45.863Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 82ms
+[2026-06-03T10:19:48.196Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 95ms
+[2026-06-03T10:19:48.228Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 122ms
+[2026-06-03T10:20:01.181Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 134ms
+[2026-06-03T10:20:03.826Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=5 - Status: 200 - 46ms
+[2026-06-03T10:20:04.875Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 97ms
+[2026-06-03T10:20:08.481Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10 - Status: 200 - 1980ms
+[2026-06-03T10:20:08.537Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10&readIds=0a6c71ae-1992-43f4-9199-1fc8a9587df9%2C3e70bad9-d41c-45ae-b844-f17b4cfe3de4%2C9ca89730-47a1-42b8-99e9-8a31bfb908fb%2Cefd20d89-7340-4818-8f67-655c94aade35%2C823b2c80-acf0-448d-b3e4-b8aa292dbbb0%2C8f304611-0182-4c01-8b68-805b01e59010%2Ce4cb6b5c-453b-4b33-bc19-afab07cbb7a4%2Cd0edec32-5876-4f9b-8eac-5b687493355e%2C577d1b0e-1f7a-43ca-a287-08aa093da237%2C98db53df-838f-4c59-a33a-af0fe8a268bf%2C8ba9a0eb-9ce6-4b0f-9fee-5ce5eb10d674%2Cf2723422-434c-4c68-91b7-938c24d29709%2C04f9b786-be99-4910-97a3-6e491cbbfb54%2Cde2e08b9-502d-493c-b238-b74f82ef3a9c%2C285ede7e-2265-4a78-9a4f-4ceac19a79dc%2Cc3827eee-3f93-481d-8233-1a2eba7b148e%2Cc7af9868-7750-4422-94e8-0edc0a677b96%2Cc12d8fb1-1b8e-431a-b81a-1584433c12da%2C8dcfc42f-abfe-40f7-9341-4f4d973aae1c%2C0b1023f0-cba2-4553-9bef-16dbd2d38e16%2C0081f691-755a-4bcc-a17f-0ea974fcb27e%2C5b0c857b-0798-4a91-8934-06b65fbfe3be%2C24adf502-0bfc-4f2d-8bd1-6793ec57f917 - Status: 200 - 2004ms
+[2026-06-03T10:20:10.276Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10 - Status: 304 - 1790ms
+[2026-06-03T10:20:11.483Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=30&readIds=0a6c71ae-1992-43f4-9199-1fc8a9587df9%2C3e70bad9-d41c-45ae-b844-f17b4cfe3de4%2C9ca89730-47a1-42b8-99e9-8a31bfb908fb%2Cefd20d89-7340-4818-8f67-655c94aade35%2C823b2c80-acf0-448d-b3e4-b8aa292dbbb0%2C8f304611-0182-4c01-8b68-805b01e59010%2Ce4cb6b5c-453b-4b33-bc19-afab07cbb7a4%2Cd0edec32-5876-4f9b-8eac-5b687493355e%2C577d1b0e-1f7a-43ca-a287-08aa093da237%2C98db53df-838f-4c59-a33a-af0fe8a268bf%2C8ba9a0eb-9ce6-4b0f-9fee-5ce5eb10d674%2Cf2723422-434c-4c68-91b7-938c24d29709%2C04f9b786-be99-4910-97a3-6e491cbbfb54%2Cde2e08b9-502d-493c-b238-b74f82ef3a9c%2C285ede7e-2265-4a78-9a4f-4ceac19a79dc%2Cc3827eee-3f93-481d-8233-1a2eba7b148e%2Cc7af9868-7750-4422-94e8-0edc0a677b96%2Cc12d8fb1-1b8e-431a-b81a-1584433c12da%2C8dcfc42f-abfe-40f7-9341-4f4d973aae1c%2C0b1023f0-cba2-4553-9bef-16dbd2d38e16%2C0081f691-755a-4bcc-a17f-0ea974fcb27e%2C5b0c857b-0798-4a91-8934-06b65fbfe3be%2C24adf502-0bfc-4f2d-8bd1-6793ec57f917 - Status: 200 - 1798ms
+[2026-06-03T10:20:14.975Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 109ms
+[2026-06-03T10:20:15.073Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 94ms
+[2026-06-03T10:20:16.240Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10&notification_type=Result - Status: 200 - 84ms
