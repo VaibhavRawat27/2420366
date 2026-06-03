@@ -1,0 +1,11 @@
+node_modules/
+.next/
+dist/
+build/
+app.log
+logging_middleware/app.log
+.env
+.env.local
+.DS_Store
+*.json.bak
+priority_notifications.json
