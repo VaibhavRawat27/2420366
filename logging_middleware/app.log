@@ -56,3 +56,5 @@ Error: Database connection failed!
 [2026-06-03T09:55:21.412Z] [INFO] [notification-backend]: GET /api/notifications/priority?n=10 - Status: 304 - 2396ms
 [2026-06-03T09:55:22.228Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 99ms
 [2026-06-03T09:55:22.342Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 304 - 95ms
+[2026-06-03T09:59:24.024Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 338ms
+[2026-06-03T10:00:34.906Z] [INFO] [notification-backend]: GET /api/notifications?page=1&limit=10 - Status: 200 - 127ms
