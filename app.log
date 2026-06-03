@@ -1,0 +1,34 @@
+[2026-06-03T08:04:43.218Z] [INFO] [auth-service]: User successfully logged in.
+[2026-06-03T08:04:43.236Z] [DEBUG] [database]: Query executed: SELECT * FROM users LIMIT 1
+[2026-06-03T08:04:43.237Z] [WARN] [payment]: Payment gateway response was slow (1200ms)
+[2026-06-03T08:04:43.238Z] [ERROR] [scheduler]: Task execution timed out
+Stack/Trace:
+at processNextTick (node:internal/process/task_queues:95:5)
+[2026-06-03T08:04:43.239Z] [ERROR] [database]: Failed to connect to primary DB cluster.
+Stack Trace:
+Error: Database connection failed!
+    at file:///E:/2420366/example.js:23:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+[2026-06-03T08:04:43.253Z] [INFO] [server-init]: Server is listening on port 3000
+[2026-06-03T08:04:43.253Z] [INFO] [server-init]: Try visiting http://localhost:3000/ or http://localhost:3000/error
+[2026-06-03T08:04:53.255Z] [INFO] [server-shutdown]: Closing server after demo run.
+[2026-06-03T08:07:02.546Z] [INFO] [auth-service]: User successfully logged in.
+[2026-06-03T08:07:02.548Z] [DEBUG] [database]: Query executed: SELECT * FROM users LIMIT 1
+[2026-06-03T08:07:02.548Z] [WARN] [payment]: Payment gateway response was slow (1200ms)
+[2026-06-03T08:07:02.549Z] [ERROR] [scheduler]: Task execution timed out
+Stack/Trace:
+at processNextTick (node:internal/process/task_queues:95:5)
+[2026-06-03T08:07:02.549Z] [ERROR] [database]: Failed to connect to primary DB cluster.
+Stack Trace:
+Error: Database connection failed!
+    at file:///E:/2420366/example.js:23:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+[2026-06-03T08:07:02.554Z] [INFO] [server-init]: Server is listening on port 3000
+[2026-06-03T08:07:02.555Z] [INFO] [server-init]: Try visiting http://localhost:3000/ or http://localhost:3000/error
+[2026-06-03T08:07:08.422Z] [INFO] [api-gateway]: Handling request for path: /
+[2026-06-03T08:07:08.430Z] [INFO] [api-gateway]: GET / - Status: 200 - 8ms
+[2026-06-03T08:07:12.558Z] [INFO] [server-shutdown]: Closing server after demo run.

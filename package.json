@@ -1,0 +1,11 @@
+{
+  "name": "our-own-logger",
+  "version": "1.0.0",
+  "description": "Custom logging middleware for Node.js using ES modules",
+  "type": "module",
+  "main": "logger.js",
+  "scripts": {
+    "start": "node example.js"
+  },
+  "dependencies": {}
+}
