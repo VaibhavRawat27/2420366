@@ -46,6 +46,13 @@ All three pieces are wired together so that the backend uses the logger, and the
 
 ---
 
+## Notification_System_Design.md
+
+This file explains the system design for implementing a notification system using a priority queue. You can also find the attached screenshot for reference.
+
+<img width="1024" height="1024" alt="priority_output" src="https://github.com/user-attachments/assets/b101aea5-41c7-4453-b23c-40be9b7dd595" />
+
+
 ## 📦 Backend (`notification_app_be`)
 
 ### Main Files
