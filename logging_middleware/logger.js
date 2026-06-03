@@ -1,90 +1,77 @@
-import fs from 'fs';
-import path from 'path';
+const axios = require('axios');
 
-// ANSI escape codes for coloring terminal output
-const COLORS = {
-  DEBUG: '\x1b[36m', // Cyan
-  INFO: '\x1b[32m',  // Green
-  WARN: '\x1b[33m',  // Yellow
-  ERROR: '\x1b[31m', // Red
-  RESET: '\x1b[0m'   // Reset terminal formatting
-};
+// Strict Schema Constraints defined by evaluation criteria
+const ALLOWED_STACKS = ['backend', 'frontend'];
 
-/**
- * Custom logging function matching the requested signature.
- * 
- * @param {string|Error|null} stack - Stack trace, Error object, or call context.
- * @param {string} level - Log severity level (DEBUG, INFO, WARN, ERROR).
- * @param {string} package_ - Name of the package/module originating the log (using package_ to avoid JS reserved keyword).
- * @param {string} message - The main log message.
- */
-export function Log(stack, level, package_, message) {
-  const timestamp = new Date().toISOString();
-  const normalizedLevel = (level || 'INFO').toUpperCase();
-  const normalizedPackage = package_ || 'root';
-  
-  // Format stack trace if provided
-  let formattedStack = '';
-  if (stack) {
-    if (stack instanceof Error) {
-      formattedStack = `\nStack Trace:\n${stack.stack}`;
-    } else if (typeof stack === 'object') {
-      formattedStack = `\nContext Data:\n${JSON.stringify(stack, null, 2)}`;
-    } else {
-      formattedStack = `\nStack/Trace:\n${stack}`;
-    }
-  }
+const ALLOWED_LEVELS = ['debug', 'info', 'warn', 'error', 'fatal'];
 
-  // Console output styling
-  const color = COLORS[normalizedLevel] || COLORS.RESET;
-  const consoleOutput = `${color}[${timestamp}] [${normalizedLevel}] [${normalizedPackage}]: ${message}${COLORS.RESET}${formattedStack}`;
-  console.log(consoleOutput);
-
-  // File logging (without ANSI color codes)
-  const fileOutput = `[${timestamp}] [${normalizedLevel}] [${normalizedPackage}]: ${message}${formattedStack}\n`;
-  try {
-    fs.appendFileSync(path.resolve('app.log'), fileOutput, 'utf8');
-  } catch (err) {
-    console.error('Failed to write to app.log:', err.message);
-  }
-}
+const ALLOWED_PACKAGES = [
+  // Backend Only
+  'cache', 'controller', 'cron_job', 'db', 'domain', 'handler', 'repository', 'route', 'service',
+  // Frontend Only
+  'api', 'component', 'hook', 'page', 'state', 'style',
+  // Shared
+  'auth', 'config', 'middleware', 'utils'
+];
 
 /**
- * Express middleware wrapping our custom Log function.
- * 
- * @param {string} defaultPackage - Default package name to use for requests.
- * @returns {Function} Express middleware handler.
+ * Reusable Log Function
+ * @param {string} stack - 'backend' or 'frontend'
+ * @param {string} level - 'debug', 'info', 'warn', 'error', 'fatal'
+ * @param {string} pkg - The package/module reporting the event
+ * @param {string} message - Descriptive log content string
+ * @param {string} token - The active Bearer Authorization Token
  */
-export function expressLogMiddleware(defaultPackage = 'http-server') {
-  return (req, res, next) => {
-    const startTime = Date.now();
+async function Log(stack, level, pkg, message, token) {
+  const cleanStack = String(stack).toLowerCase().trim();
+  const cleanLevel = String(level).toLowerCase().trim();
+  const cleanPkg = String(pkg).toLowerCase().trim();
 
-    // Attach the logger helper directly to the request object
-    req.log = (level, message, stack = null) => {
-      Log(stack, level, defaultPackage, message);
-    };
+  if (!ALLOWED_STACKS.includes(cleanStack)) {
+    console.error(`[Logging Middleware Error] Invalid stack: "${stack}". Must be one of: ${ALLOWED_STACKS.join(', ')}`);
+    return null;
+  }
+  if (!ALLOWED_LEVELS.includes(cleanLevel)) {
+    console.error(`[Logging Middleware Error] Invalid level: "${level}". Must be one of: ${ALLOWED_LEVELS.join(', ')}`);
+    return null;
+  }
+  if (!ALLOWED_PACKAGES.includes(cleanPkg)) {
+    console.error(`[Logging Middleware Error] Invalid package: "${pkg}". Must be one of: ${ALLOWED_PACKAGES.join(', ')}`);
+    return null;
+  }
+  if (!message || typeof message !== 'string') {
+    console.error('[Logging Middleware Error] Message field must be a valid, non-empty string.');
+    return null;
+  }
+  if (!token) {
+    console.error('[Logging Middleware Error] Missing Bearer Token. Cannot make authenticated calls to protected route.');
+    return null;
+  }
 
-    // Log the request once it finishes
-    res.on('finish', () => {
-      const duration = Date.now() - startTime;
-      const message = `${req.method} ${req.originalUrl || req.url} - Status: ${res.statusCode} - ${duration}ms`;
-      
-      let level = 'INFO';
-      let stackInfo = null;
-
-      if (res.statusCode >= 500) {
-        level = 'ERROR';
-        // Add minimal error details if available on request or error state
-        if (req.err) {
-          stackInfo = req.err;
-        }
-      } else if (res.statusCode >= 400) {
-        level = 'WARN';
-      }
-
-      Log(stackInfo, level, defaultPackage, message);
-    });
-
-    next();
+  const payload = {
+    stack: cleanStack,
+    level: cleanLevel,
+    package: cleanPkg,
+    message: message
   };
+
+  try {
+    const response = await axios.post(
+      'http://4.224.186.213/evaluation-service/logs',
+      payload,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error('Failed to push log entry to test server:', error.response?.data || error.message);
+    return null;
+  }
 }
+
+module.exports = { Log };
