@@ -176,14 +176,3 @@ When the backend server is running, every incoming request (including API calls 
 | Frontend cannot reach backend (CORS or 404) | `NEXT_PUBLIC_BACKEND_URL` not set or mismatched port. | Verify the `.env.local` value matches the backend URL and port. |
 | Logs are not appearing in `app.log` | File permission issues or `logging_middleware` directory missing. | Ensure the directory exists and your user has write permission. |
 | Material‑UI icons fail to import (`module not found`) | Incorrect import path after version change. | Use **path imports** (e.g., `import CheckCircleOutlined from '@mui/icons-material/CheckCircleOutlined';`). All icons have been updated in the codebase. |
-
----
-
-## 📄 License & Credits
-- This project is **MIT‑licensed** – feel free to reuse, modify, or distribute.
-- Logging middleware was inspired by classic Node.js logger patterns and adapted for the remote evaluation service.
-- UI components are built with **Material‑UI v9** and follow a dark‑mode, premium aesthetic.
-
----
-
-**Happy coding!** If you have any questions about the logger, the priority queue, or deployment, just let me know.
