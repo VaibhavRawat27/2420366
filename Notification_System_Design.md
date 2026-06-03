@@ -908,6 +908,3 @@ A `Set<id>` guards against the same notification being counted twice if the poll
 **5. Streaming-ready.**
 The `inbox.add(notification)` method accepts a single notification, so it plugs directly into the SSE handler from the real-time stream endpoint defined earlier in this document — no refactoring required when moving from batch to streaming.
 
----
-
-*Document version: 1.1 — Stage 1 Priority Inbox added — June 2025*
