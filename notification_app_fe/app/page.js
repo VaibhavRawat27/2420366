@@ -237,9 +237,8 @@ export default function AllNotifications() {
                   transition: 'all 0.2s ease-in-out',
                   opacity: isRead ? 0.7 : 1,
                   bgcolor: isRead ? 'action.hover' : 'background.paper',
-                  borderLeft: `5px solid ${
-                    isRead ? 'transparent' : `var(--mui-palette-${TYPE_COLORS[notif.Type] || 'primary'}-main)`
-                  }`,
+                  borderLeft: `5px solid ${isRead ? 'transparent' : `var(--mui-palette-${TYPE_COLORS[notif.Type] || 'primary'}-main)`
+                    }`,
                   '&:hover': {
                     transform: 'translateY(-2px)',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
